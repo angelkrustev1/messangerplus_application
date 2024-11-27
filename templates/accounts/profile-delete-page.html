@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <p class="heading">Are you sure you want to delete your profile</p>
+    <div class="confirmation-buttons">
+        <div class="confirm-delete-button">
+            <a href="{% url 'user-delete' profile_user.pk %}">Yes</a>
+        </div>
+        <div class="reject-delete-button">
+            <a href="{% url 'profile-details' profile_user.pk %}">No</a>
+        </div>
+    </div>
+{% endblock %}

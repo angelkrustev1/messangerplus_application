@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="form-container">
+        <p class="form-heading">Redact Profile</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <button>Redact</button>
+        </form>
+        <p class="form-description">Here you can change your profile</a>.</p>
+    </div>
+{% endblock %}

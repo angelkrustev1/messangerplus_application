@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'common/search-form.html' %}
+    
+    {% for post in posts %}
+        {% include 'posts/post.html' %}
+    {% empty %}
+        <p class="heading">No Posts Yet</p>
+    {% endfor %}
+{% endblock %}

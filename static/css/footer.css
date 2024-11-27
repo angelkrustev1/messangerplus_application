@@ -1,0 +1,31 @@
+footer {
+    background-color: #5A3D29;
+    text-align: center;
+    padding: 0.8rem 1.6rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .span-footer {
+    display: inline-block;
+    color: #ccccbe;
+    font-size: 1.2rem;
+}
+
+footer .span-footer a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer .icons-link {
+    color: #ededaf;
+}
+
+footer .icons-link:hover {
+    font-size: 1.3rem;
+    text-decoration: underline;
+}

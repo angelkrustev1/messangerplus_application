@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'common/search-form.html' %}
+    
+    <p class="heading">Followers {{ following.count }}</p>
+    
+    {% for follow in following%}
+        {% include 'common/short-profile.html' with profile_user=follow.user %}
+    {% endfor %}
+{% endblock %}

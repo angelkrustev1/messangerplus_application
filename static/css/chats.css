@@ -1,0 +1,81 @@
+.message-container {
+    width: 32rem;
+    background-color: #ccccbe;
+    border: 1px solid #5A5858FF;
+    border-radius: 0.4rem;
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.message-container .message-credentials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.message-container .message-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.message-container .message-header p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #5A5858FF;
+}
+
+.message-content-container {
+    padding: 0.4rem 0.8rem;
+}
+
+.message-content-container .message-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form-message-container {
+    padding: 1.2rem;
+    background-color: #0c8a23;
+    border: 1px solid #5A3D29;
+    border-radius: 0.8rem;
+    margin-top: 2.4rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-message-container form {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+}
+
+.form-message-container form input {
+    width: 18rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+}
+
+.message-button {
+    color: #ededaf;
+    background-color: #5A3D29;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.message-extra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.date-container p {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+

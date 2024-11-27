@@ -1,0 +1,62 @@
+{% load static %}
+
+<div class="post-container">
+    <div class="post-top">
+        <div class="profile-container">
+            <a href="{% url 'profile-details' post.user.pk %}">
+                {% if post.user.profile.profile_picture %}
+                    <img class="profile-icon" src="{{ post.user.profile.profile_picture.url }}">
+                {% else %}
+                    <img class="profile-icon" src="{% static 'images/no-profile.png' %}">
+                {% endif %}
+            </a>
+            <p class="profile-name">
+                <a href="{% url 'profile-details' post.user.pk %}">{{ post.user.username }}</a>
+            </p>
+        </div>
+        {% if request.user == post.user or can_administer_posts %}
+        <div class="profile-processing">
+            <a href="{% url 'post-edit' post.pk %}">
+                <img class="edit-icon" src="{% static 'images/edit-icon.png' %}">
+            </a>
+            <a href="{% url 'post-delete' post.pk %}">
+                <img class="delete-icon" src="{% static 'images/delete-icon.png' %}">
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="post-main">
+        <div class="post-img-container">
+            {% if post.photo %}
+            <img width="500px" class="post-img" src="{{ post.photo.url }}">
+        {% else %}
+            <img width="500px" class="post-img" src="{% static 'images/no-post-image.png' %}">
+        {% endif %}
+        </div>
+        <p class="post-title">{{ post.title }}</p>
+    </div>
+    <div class="post-bottom">
+        <p class="details-text">
+            {% if is_details %}
+                {{ post.description }}
+            {% else %}
+                <a href="{% url 'post-details' post.pk %}">Details</a>
+            {% endif %}
+        </p>
+        <div class="like-area">
+        <p>{{ post.likes.count }}</p>
+            <a href="{% url 'like' post.pk %}">
+                {% if post.likes.count > 0 %}
+                    <img class="like-icon" src="{% static 'images/like-icon.png' %}">
+                {% else %}
+                    <img class="like-icon" src="{% static 'images/no-like-icon.png' %}">
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    <form class="comment-form" method="post" action="{% url 'comment' post.pk %}">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Post</button>
+    </form>
+</div>

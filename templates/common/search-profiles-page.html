@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'common/search-form.html' %}
+    
+    {% for profile_user in all_users %}
+        {% include 'common/short-profile.html' %}
+    {% empty %}
+        <p class="heading">No Users</p>
+    {% endfor %}
+{% endblock %}

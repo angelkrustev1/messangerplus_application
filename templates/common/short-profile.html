@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="follow-profile-container">
+    <div class="follow-profile">
+        <a href="{% url 'profile-details' profile_user.pk %}">
+            {% if profile_user.profile.profile_picture %}
+                <img class="profile-icon" src="{{ profile_user.profile.profile_picture.url }}">
+            {% else %}
+                <img class="profile-icon" src="{% static 'images/no-profile.png' %}">
+            {% endif %}
+        </a>
+        <p class="profile-name">
+            <a href="{% url 'profile-details' profile_user.pk %}">{{ profile_user.username }}</a>
+        </p>
+    </div>
+    <div class="follow-button">
+        <a href="{% url 'follow' profile_user.pk %}">
+            {% if profile_user.profile in request.user.profile.following.all %}
+                Unfollow
+            {% else %}
+                Follow
+            {% endif %}
+        </a>
+    </div>
+</div>

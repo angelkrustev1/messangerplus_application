@@ -1,0 +1,37 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'posts/post.html' with post=post comment_form=comment_form %}
+
+    {% for comment in comments %}
+        <div class="comment-container">
+            <div class="comment-top">
+                <div class="comment-profile">
+                    <a href="#">
+                        {% if comment.user.profile.profile_picture %}
+                            <img class="profile-icon" src="{{ comment.user.profile.profile_picture.url }}">
+                        {% else %}
+                            <img class="profile-icon" src="{% static 'images/no-profile.png' %}">
+                        {% endif %}
+                    </a>
+                    <p class="profile-name">{{ comment.user.username }}</p>
+                </div>
+                <div class="comment-extra">
+                    <p>{{ comment.publication_datetime }} UTC</p>
+                    {% if request.user == comment.user or can_administer_comments %}
+                        <a href="{% url 'comment-delete' comment.to_post.pk comment.pk %}">
+                            <img class="delete-icon" src="{% static 'images/delete-icon.png' %}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="comment-content">
+                <p class="comment-text">{{ comment.content }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p class="heading">No Comments Yet</p>
+    {% endfor %}
+{% endblock %}

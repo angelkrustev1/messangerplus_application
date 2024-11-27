@@ -1,0 +1,47 @@
+{% load static %}
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img style="width: 7rem" src="{% static 'images/messangerplus-logo.png' %}">
+            </a>
+        </div>
+    </div>
+    <div class="nav-ul-container">
+        <ul class="nav-options">
+            {% if not user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                <li>
+                    <a href="{% url 'register' %}">Register</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'search-profiles' %}">Follow</a>
+                </li>
+                <li>
+                    <a href="{% url 'chats' %}">Chats</a>
+                </li>
+                <li>
+                    <a href="{% url 'posts-for-you' %}">For You</a>
+                </li>
+                <li>
+                    <a href="{% url 'create-post' %}">Create Post</a>
+                </li>
+                <li>
+                    <a href="{% url 'profile-details' request.user.pk %}">Profile</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+    {% csrf_token %}
+    <button>Logout</button>
+</form>

@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'common/search-form.html' %}
+
+    <p class="heading">Chats</p>
+    <p class="heading-description">*Both users must follow each other to be able to have a chat</p>
+    
+    {% for profile in mutual_followers %}
+    <div class="follow-profile-container">
+        <div class="follow-profile">
+            <a href="{% url 'profile-details' profile.user.pk %}">
+                {% if profile.profile_picture %}
+                    <img class="profile-icon" src="{{ profile.profile_picture.url }}">
+                {% else %}
+                    <img class="profile-icon" src="{% static 'images/no-profile.png' %}">
+                {% endif %}
+            </a>
+            <p class="profile-name">
+                <a href="{% url 'profile-details' profile.user.pk %}">{{ profile.user.username }}</a>
+            </p>
+        </div>
+        <div class="follow-button">
+            <a href="{% url 'chat-one-on-one' profile.user.pk %}">Open Chat</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

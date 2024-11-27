@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="form-container">
+        <p class="form-heading">Create Post</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <button>Upload</button>
+        </form>
+        <p class="form-description">You can upload a post from here</p>
+    </div>
+{% endblock %}

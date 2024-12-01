@@ -5,7 +5,7 @@
     <div class="account-profile-container">
         <div class="profile-top">
             <div class="comment-profile">
-                <a href="">
+                <a href="#">
                     {% if profile_user.profile.profile_picture %}
                         <img class="profile-icon" src="{{ profile_user.profile.profile_picture.url }}">
                     {% else %}
@@ -18,6 +18,9 @@
             </div>
             <div class="profile-processing">
                 {% if request.user == profile_user or can_administer_profiles %}
+                    <a href="{% url 'password-change' %}">
+                        <img class="edit-icon" src="{% static 'images/password-icon.png' %}">
+                    </a>
                     <a href="{% url 'profile-edit' profile_user.pk %}">
                         <img class="edit-icon" src="{% static 'images/edit-icon.png' %}">
                     </a>

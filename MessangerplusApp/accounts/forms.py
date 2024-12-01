@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, AuthenticationForm, PasswordChangeForm
 
 from MessangerplusApp.accounts.models import Profile
 
@@ -14,11 +14,18 @@ class AppUserChangeForm(UserChangeForm):
 
 class AppUserCreationForm(UserCreationForm):
     password1 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}),
+        widget=forms.PasswordInput(attrs={
+            'placeholder': 'Password',
+            "autocomplete": "new-password",
+        }),
         label='',
     )
+
     password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}),
+        widget=forms.PasswordInput(attrs={
+            'placeholder': 'Confirm Password',
+            "autocomplete": "new-password",
+        }),
         label='',
     )
 
@@ -48,6 +55,34 @@ class AppUserAuthenticationForm(AuthenticationForm):
         self.fields['password'].label = ''
 
 
+class AppUserPasswordChangeForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['old_password'].widget.attrs.update({
+            'placeholder': 'Old Password',
+            'autocomplete': 'current-password',
+            'autofocus': True,
+        })
+        self.fields['old_password'].label = ''
+        self.fields['old_password'].halp_text = ''
+
+        self.fields['new_password1'].widget.attrs.update({
+            'placeholder': 'New Password',
+            'autocomplete': 'new-password',
+        })
+        self.fields['new_password1'].label = ''
+        self.fields['new_password1'].help_text = ''
+
+        self.fields['new_password2'].widget.attrs.update({
+            'placeholder': 'Confirm New Password',
+            'autocomplete': 'new-password',
+        })
+        self.fields['new_password2'].label = ''
+        self.fields['new_password2'].help_text = ''
+
+
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -63,3 +98,5 @@ class ProfileEditForm(forms.ModelForm):
             'biography': '',
             'profile_picture': '',
         }
+
+

@@ -1,12 +1,14 @@
-from django.contrib.auth.views import LogoutView, LoginView
+from django.contrib.auth.views import LogoutView, LoginView, PasswordChangeView, PasswordChangeDoneView
 from django.urls import path, include
 
 from MessangerplusApp.accounts import views
+from MessangerplusApp.accounts.views import AppUserPasswordChangeView
 
 urlpatterns = [
     path('register/', views.register_page, name='register'),
     path('login/', views.AppUserLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('password/change/', AppUserPasswordChangeView.as_view(), name='password-change'),
     path('user/<int:pk>/delete', views.user_delete, name='user-delete'),
     path('profile/', include([
         path('<int:pk>/', views.profile_details, name='profile-details'),

@@ -1,9 +1,12 @@
 from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 
-from MessangerplusApp.accounts.forms import AppUserCreationForm, AppUserAuthenticationForm, ProfileEditForm
+from MessangerplusApp.accounts.forms import AppUserCreationForm, AppUserAuthenticationForm, ProfileEditForm, \
+    AppUserPasswordChangeForm
 from MessangerplusApp.accounts.models import Profile
 from MessangerplusApp.common.forms import CommentForm, SearchForm
 from MessangerplusApp.posts.models import Post
@@ -29,6 +32,14 @@ def register_page(request):
     }
 
     return render(request, 'accounts/register-page.html', context)
+
+
+class AppUserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+    form_class = AppUserPasswordChangeForm
+    template_name = 'accounts/change-password-page.html'
+
+    def get_success_url(self):
+        return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
 
 
 @login_required
@@ -139,4 +150,7 @@ def profile_followers(request, pk):
     }
 
     return render(request, 'accounts/profile-followers-page.html', context)
+
+
+
 

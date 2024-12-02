@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from unfold.admin import ModelAdmin
 
 from MessangerplusApp.accounts.forms import AppUserCreationForm, AppUserChangeForm
 from MessangerplusApp.accounts.models import Profile
@@ -8,7 +9,7 @@ UserModel = get_user_model()
 
 
 @admin.register(UserModel)
-class AppUserAdmin(admin.ModelAdmin):
+class AppUserAdmin(ModelAdmin):
     model = UserModel
     add_form = AppUserCreationForm
     form = AppUserChangeForm
@@ -38,14 +39,14 @@ class AppUserAdmin(admin.ModelAdmin):
             None,
             {
                 'classes': ['wide'],
-                'fields': {'username', 'email', 'password1', 'password2'}
+                'fields': {'username', 'email', 'password'}
             }
         ],
     ]
 
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(ModelAdmin):
     list_display = ['user', 'biography']
     search_fields = ['user__username', 'user__email', 'biography']
     list_filter = ['user__is_active', 'user__is_staff', 'user__date_joined']

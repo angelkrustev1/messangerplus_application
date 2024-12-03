@@ -49,5 +49,3 @@ class Post(models.Model):
         auto_now_add=True,
         blank=True,
     )
-
-

@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% load static %}
+{% load user_liked_post_tag %}
 
 {% block content %}
     <div class="account-profile-container">
@@ -44,7 +45,7 @@
             </div>
         </div>
     </div>
-    
+
     {% for post in all_posts %}
         {% include 'posts/post.html' %}
     {% empty %}

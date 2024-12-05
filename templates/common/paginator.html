@@ -1,0 +1,34 @@
+{% load static %}
+{% load user_liked_post_tag %}
+
+<div class="paginator">
+    {% if posts %}
+        <div class="page-container">
+            <a href="?page=1"><<</a>
+        </div>
+
+        <div class="page-container">
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}"><</a>
+            {% else %}
+                <a href="?page=1"><</a>
+            {% endif %}
+        </div>
+
+        <div class="page-container">
+            <a href="?page={{ posts.number }}">{{ posts.number }}</a>
+        </div>
+
+        <div class="page-container">
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">></a>
+            {% else %}
+                <a href="?page={{ posts.paginator.num_pages }}">></a>
+            {% endif %}
+        </div>
+
+        <div class="page-container">
+            <a href="?page={{ posts.paginator.num_pages }}">>></a>
+        </div>
+    {% endif %}
+</div>

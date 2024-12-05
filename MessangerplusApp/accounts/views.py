@@ -150,7 +150,3 @@ def profile_followers(request, pk):
     }
 
     return render(request, 'accounts/profile-followers-page.html', context)
-
-
-
-

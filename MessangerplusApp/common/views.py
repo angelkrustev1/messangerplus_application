@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -24,10 +25,14 @@ def index(request):
             query = search_form.cleaned_data['query']
             all_posts = all_posts.filter(user__username__icontains=query)
 
+    paginator = Paginator(all_posts, 10)
+    page_number = request.GET.get('page')
+    posts_page = paginator.get_page(page_number)
+
     context = {
         'search_form': search_form,
         'comment_form': comment_form,
-        'posts': all_posts,
+        'posts': posts_page,
         'can_administer_posts': request.user.has_perm('can_administer_posts'),
         'is_details': False,
     }

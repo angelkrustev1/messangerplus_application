@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 
@@ -48,9 +49,13 @@ def profile_details(request, pk):
     comment_form = CommentForm()
     all_posts = Post.objects.filter(user__pk=pk)
 
+    paginator = Paginator(all_posts, 10)
+    page_number = request.GET.get('page')
+    posts_page = paginator.get_page(page_number)
+
     context = {
         'profile_user': profile_user,
-        'all_posts': all_posts,
+        'posts': posts_page,
         'comment_form': comment_form,
         'can_administer_profiles': request.user.has_perm('accounts.can_administer_profiles'),
         'is_details': False,

@@ -46,9 +46,11 @@
         </div>
     </div>
 
-    {% for post in all_posts %}
+    {% for post in posts %}
         {% include 'posts/post.html' %}
     {% empty %}
         <p class="heading">No Posts Yet</p>
     {% endfor %}
+    
+    {% include 'common/paginator.html' %}
 {% endblock %}

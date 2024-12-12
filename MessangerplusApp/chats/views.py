@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -84,6 +85,8 @@ def message_delete(request, pk, message_pk):
 
 
 class MessagesBetweenUsersView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, sender_pk, recipient_pk):
         target_user = UserModel.objects.get(pk=recipient_pk)
         profile = request.user.profile

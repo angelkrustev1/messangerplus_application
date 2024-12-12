@@ -100,7 +100,7 @@ def like_functionality(request, post_pk):
         like = Like(user=request.user, to_post=post)
         like.save()
 
-    return redirect(request.META.get('HTTP_REFERER'))
+    return redirect(request.META.get('HTTP_REFERER') + f'#{post_pk}')
 
 
 @login_required
@@ -120,4 +120,4 @@ def follow_functionality(request, user_pk):
     else:
         profile.following.add(target_profile)
 
-    return redirect(request.META.get('HTTP_REFERER'))
+    return redirect(request.META.get('HTTP_REFERER') + f'#{user_pk}')

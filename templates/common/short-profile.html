@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="follow-profile-container">
+<div class="follow-profile-container" id="{{ profile_user.pk }}">
     <div class="follow-profile">
         <a href="{% url 'profile-details' profile_user.pk %}">
             {% if profile_user.profile.profile_picture %}

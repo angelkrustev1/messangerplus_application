@@ -1,7 +1,7 @@
 {% load static %}
 {% load user_liked_post_tag %}
 
-<div class="post-container">
+<div class="post-container" id="{{ post.pk }}">
     <div class="post-top">
         <div class="profile-container">
             <a href="{% url 'profile-details' post.user.pk %}">

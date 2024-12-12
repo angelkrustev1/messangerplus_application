@@ -82,7 +82,6 @@ class AppUserPasswordChangeForm(PasswordChangeForm):
         self.fields['new_password2'].help_text = ''
 
 
-
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile

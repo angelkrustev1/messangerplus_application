@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
+from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -87,12 +88,13 @@ class MessagesBetweenUsersView(APIView):
         target_user = UserModel.objects.get(pk=recipient_pk)
         profile = request.user.profile
 
+        if request.user.pk != sender_pk:
+            return Response({'message': 'Invalid'}, status=status.HTTP_400_BAD_REQUEST)
+
         shared_messages = Message.objects.filter(
             (Q(sender=request.user) & Q(recipient=target_user) | Q(sender=target_user) & Q(recipient=request.user))
         )
 
         shared_messages_json = MessageSerializer(shared_messages, many=True)
 
-        return Response(shared_messages_json.data)
-
-
+        return Response(shared_messages_json.data, status=status.HTTP_200_OK)

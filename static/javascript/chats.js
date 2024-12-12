@@ -20,4 +20,4 @@ async function checkRefreshPage() {
     }
 }
 
-setInterval(checkRefreshPage, 3000);
+setInterval(checkRefreshPage, 5000);

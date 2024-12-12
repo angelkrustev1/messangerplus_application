@@ -4,6 +4,19 @@
 {% block content %}
     <p class="heading">{{ target_user.username }}</p>
     
+    <div class="form-message-container">
+        <form method="post" class="message-form">
+            {% csrf_token %}
+            {{ message_form.as_p }}
+            <button class="message-button">Sent</button>
+        </form>
+    </div>
+    
+    <div id="users-data" style="display: none"
+         data-user-id="{{ request.user.pk }}"
+         data-target-user-id="{{ target_user.pk }}">
+    </div>
+    
     {% for message in shared_messages %}
     <div class="message-container">
         <div class="message-credentials">
@@ -39,11 +52,5 @@
         <p class="heading-description">No Messages Yet</p>
     {% endfor %}
     
-    <div class="form-message-container">
-        <form method="post" class="message-form">
-            {% csrf_token %}
-            {{ message_form.as_p }}
-            <button class="message-button">Sent</button>
-        </form>
-    </div>
+    <script src="{% static 'javascript/chats.js' %}" defer></script>
 {% endblock %}

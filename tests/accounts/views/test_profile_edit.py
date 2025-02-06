@@ -59,7 +59,7 @@ class ProfileEditTests(TestCase):
     def test_profile_edit_form_submission_with_image(self):
         image_path = os.path.join(settings.BASE_DIR, 'static', 'images', 'no-post-image.png')
         with open(image_path, 'rb') as img_file:
-            image = SimpleUploadedFile("test_image.jpg", img_file.read(), content_type="image/png")
+            image = SimpleUploadedFile('test_image.jpg', img_file.read(), content_type='image/png')
 
         response = self.client.post(reverse('profile-edit', kwargs={'pk': self.user1.pk}), {
             'biography': 'Updated Bio with Image',

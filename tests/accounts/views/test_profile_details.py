@@ -27,7 +27,7 @@ class ProfileDetailsTests(TestCase):
 
         image_path = os.path.join(settings.BASE_DIR, 'static', 'images', 'no-post-image.png')
         with open(image_path, 'rb') as img_file:
-            self.image = SimpleUploadedFile("test_image.jpg", img_file.read(), content_type="image/png")
+            self.image = SimpleUploadedFile('test_image.jpg', img_file.read(), content_type='image/png')
 
         self.post_credentials = {
             'user': self.user2,

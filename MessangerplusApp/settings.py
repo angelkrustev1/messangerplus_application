@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv('SECRET_KEY', os.environ['SECRET_KEY'])
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG'] == 'True'
+DEBUG = os.getenv('DEBUG', os.environ['DEBUG']) == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -88,11 +88,11 @@ WSGI_APPLICATION = 'MessangerplusApp.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": 'django.db.backends.postgresql',
-        "NAME": os.environ['DB_NAME'],
-        "USER": os.environ['DB_USER'],
-        "PASSWORD": os.environ['DB_PASS'],
-        "HOST": os.environ['DB_HOST'],
-        "PORT": os.environ['DB_PORT'],
+        "NAME": os.getenv('DB_NAME', os.environ['DB_NAME']),
+        "USER": os.getenv('DB_USER', os.environ['DB_USER']),
+        "PASSWORD": os.getenv('DB_PASS', os.environ['DB_PASS']),
+        "HOST": os.getenv('DB_HOST', os.environ['DB_HOST']),
+        "PORT": os.getenv('DB_PORT', os.environ['DB_PORT']),
     }
 }
 

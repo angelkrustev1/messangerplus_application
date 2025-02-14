@@ -1,0 +1,112 @@
+.account-profile-container {
+    background-color: #ededaf;
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid #5A3D29;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profile-top {
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.profile-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-following {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.profile-following .followers-container {
+    padding: 0.4rem 0.6rem;
+    background-color: #5A3D29;
+    border-radius: 0.2rem;
+}
+
+.profile-following .followed-container {
+    padding: 0.4rem 0.6rem;
+    background-color: #5A3D29;
+    border-radius: 0.2rem;
+}
+
+.profile-following .followers-container a {
+    text-decoration: none;
+    color: #ededaf;
+}
+
+.profile-following .followed-container a {
+    text-decoration: none;
+    color: #ededaf;
+}
+
+.bio-container  {
+    width: 15rem;
+    padding-left: 0.4rem;
+}
+
+.bio-container .bio-text {
+    font-size: 0.9rem;
+    color: #5A5858FF;
+    font-weight: bold;
+}
+
+.confirmation-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.8rem;
+}
+
+.confirmation-buttons .confirm-delete-button {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.6rem;
+    text-align: center;
+    background-color: #bf1818;
+    border: 1px solid #5A3D29;
+    border-radius: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-buttons .reject-delete-button {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.6rem;
+    text-align: center;
+    background-color: #0c8a23;
+    border: 1px solid #5A3D29;
+    border-radius: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-buttons .confirm-delete-button a {
+    text-decoration: none;
+    font-style: italic;
+    color: #ededaf;
+}
+
+.confirmation-buttons .reject-delete-button a {
+    text-decoration: none;
+    font-style: italic;
+    color: #ededaf;
+}
+
+.confirmation-buttons .confirm-delete-button a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.confirmation-buttons .reject-delete-button a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}

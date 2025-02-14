@@ -1,0 +1,143 @@
+.post-container {
+    padding: 1.2rem;
+    background-color: #ededaf;
+    border: 1px solid #5A3D29;
+    border-radius: 0.4rem;
+    margin-top: 1.6rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.post-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+    padding: 0 0.8rem;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.profile-processing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.like-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.comment-form button {
+    padding: 0.4rem 0.8rem;
+    background-color: #5A3D29;
+    color: #ededaf;
+    border-radius: 1.2rem;
+}
+
+.comment-form input {
+    width: 23rem;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid #5A3D29;
+    border-radius: 0.6rem;
+}
+
+.comment-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-top .comment-extra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.comment-top .comment-extra p {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.profile-name a{
+    text-decoration: none;
+    color: #5A5858FF;
+}
+
+.profile-icon {
+    width: 2.8rem;
+}
+
+.edit-icon {
+    width: 1.7rem;
+}
+
+.delete-icon {
+    width: 1.7rem;
+}
+
+.like-icon {
+    width: 1.7rem;
+}
+
+.post-img-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-img {
+    width: 28rem;
+    height: 28rem;
+    object-fit: cover;
+}
+
+.details-text {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #5A3D29;
+}
+
+.details-text a {
+    text-decoration: none;
+    color: #5A3D29;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.details-text a:hover {
+    text-decoration: underline;
+}
+
+.post-title {
+    margin-top: 1.2rem;
+}

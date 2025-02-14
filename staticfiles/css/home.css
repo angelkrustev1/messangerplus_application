@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Comfortaa', 'serif';
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    background-color: #ededaf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+main .main-container {
+    width: 67rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #5A3D29;
+    background-color: #ffffff;
+    border-left: 1px solid #5A3D29;
+    border-right: 1px solid #5A3D29;
+    padding: 2.4rem 1.6rem;
+    flex: 1;
+}
+
+.heading {
+    font-size: 2.6rem;
+    font-weight: bold;
+    padding-bottom: 2.4rem;
+    color: #5A3D29;
+    margin: 1rem;
+}
+
+.heading-description {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.5;
+    color: #5A3D29;
+}
+
+
+
+.search-form button {
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) and (max-width: 768px){
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1441px){
+    html {
+        font-size: 20px;
+    }
+}

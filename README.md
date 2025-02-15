@@ -2,6 +2,10 @@
 
 A basic social media web application that allows users to have chats, publish posts, and interact with them. The application is designed with user roles and permissions for a safe and secure experience, as well as a custom admin site.
 
+## Deployment
+The application and database are hosted on [Render](https://render.com) and are accessible at the following URL:
+[MessangerPlus Application](https://messangerplus-application.onrender.com)
+
 ## General Requirements
 
 - **Python**: Version 3.11.1 or higher

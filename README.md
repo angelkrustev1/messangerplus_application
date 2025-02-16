@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ### Step 3: Create a `.env` File
-Create a `.env` file and populate it with the same environment variables as in the `.env.template` file, assigning the appropriate values.
+Create a `.env` file and populate it with the same environment variables as in the `.env.templates` file, assigning the appropriate values.
 
 ### Step 4: Apply Database Migrations
 Run the following command to apply migrations:

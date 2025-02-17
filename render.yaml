@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: Messangerplus
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: |
+      python manage.py migrate &&
+      python manage.py collectstatic --noinput &&
+      waitress-serve --port=$PORT MessangerplusApp.wsgi:application
+
+    envVars:
+      - key: SECRET_KEY
+        value: your-secret-key  # Replace with your actual secret key
+      - key: DEBUG
+        value: 'False'
+
+databases:
+  - name: my-django-db
+    plan: free

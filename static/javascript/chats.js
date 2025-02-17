@@ -17,8 +17,8 @@ async function checkRefreshPage() {
 
     if (!are_messages_equal) {
         location.reload();
-        lastMessages=messagesData
     }
+    lastMessages=messagesData
 }
 
 setInterval(checkRefreshPage, 5000);

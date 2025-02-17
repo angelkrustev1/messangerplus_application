@@ -31,7 +31,7 @@ Create a `.env` file and populate it with the same environment variables as in t
 
 ### Step 3: Use the appropriate messages url for running the app localy
 This is something rather specific for this application and what you need to to do is to go in the `chats.js` file, 
-the path for the file is `static/javascript/chats.js`. In the file you will see a comment expaining that shows what value
+the path for the file is `static/javascript/chats.js`. In the file you will see a comment expaining what value
 should be assigned to the `mesesages url` when running the application locally.
 
 ### Step 4: Apply Database Migrations

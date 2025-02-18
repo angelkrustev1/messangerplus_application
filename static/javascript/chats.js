@@ -2,11 +2,9 @@ let usersDataDivElement = document.getElementById('users-data');
 let userId = usersDataDivElement.getAttribute('data-user-id');
 let targetUserId = usersDataDivElement.getAttribute('data-target-user-id');
 
-/*
-    IF YOU RUN THIS APP LOCALLY USE THIS URL FOR "messagesUrl":
-    http://localhost:8000/chats/messages/
-*/
-messagesUrl = 'https://messangerplus-application.onrender.com/chats/messages/' + `${userId}/${targetUserId}/`;
+// http://localhost:8000/chats/messages /
+// messagesUrl = 'https://messangerplus-application.onrender.com/chats/messages/' + `${userId}/${targetUserId}/`;
+messagesUrl = `${window.location.origin}/chats/messages/${userId}/${targetUserId}/`
 let lastMessages = null;
 
 document.addEventListener('DOMContentLoaded', async () => {

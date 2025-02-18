@@ -2,10 +2,18 @@
 
 <nav>
     <div class="nav-container">
-        <div class="logo">
-            <a href="{% url 'index' %}">
-                <img style="width: 7rem" src="{% static 'images/messangerplus-logo.png' %}">
-            </a>
+        <div class="nav-left-menu">
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img style="width: 7rem" src="{% static 'images/messangerplus-logo.png' %}">
+                </a>
+            </div>
+            <div class="languages-select-container">
+                <select name="language" id="language-select">
+                    <option value="bg">English</option>
+                    <option value="en">Bulgarian</option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="nav-ul-container">
@@ -34,7 +42,8 @@
                     <a href="{% url 'profile-details' request.user.pk %}">Profile</a>
                 </li>
                 <li>
-                    <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+                    <a href="{% url 'logout' %}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
                 </li>
             {% endif %}
         </ul>

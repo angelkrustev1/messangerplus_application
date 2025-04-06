@@ -4,7 +4,7 @@ A basic social media web application that allows users to have chats, publish po
 
 ## Deployment
 The application and database are hosted on [Render](https://render.com) and accessible at the following URL:
-[MessangerPlus Application](https://messangerplus-application.onrender.com) (No longer avalable)
+[MessangerPlus Application](https://messangerplus-application.onrender.com) (No longer available)
 
 ## General Requirements
 
